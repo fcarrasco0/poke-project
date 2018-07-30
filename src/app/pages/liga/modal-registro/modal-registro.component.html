@@ -1,0 +1,93 @@
+<button class="waves-effect white-text blue waves-light btn-flat" (click)='abreModal()'>Comece sua jornada!</button>
+
+<div class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content black-text">
+    
+    <div class="row">
+      <form #cadastro="ngForm" (ngSubmit)="onSubmit(cadastro)" class="col s12">
+        <div class="row ">
+          
+          <!-- dados pessoais -->
+          <section>  
+            <div class="center">
+              <h5> Dados Pessoais </h5>
+            </div>
+            <div class="divider row col s12"></div>
+            
+            <div class="input-field col s8 offset-s1">
+              <input type="text" id="nome" name="nome" ngModel required>
+              <label for="nome">Nome</label>
+            </div>
+
+            <div class="input-field col s1">
+              <input type="text" id="idade" name="idade" ngModel required>
+              <label for="idade">Idade</label>
+            </div>
+
+            <div class="input-field col s8 offset-s1">
+              <input type="text" id="idnum" name="idnum" ngModel required>
+              <label for="idnum">Nº de identificação</label>
+            </div>
+
+            <div class="input-field col s8 offset-s1">
+              <input type="email" id="email" name="email" ngModel required>
+              <label for="email">email</label>
+            </div>
+          </section>
+
+          <!-- regioes -->
+          <section class="col s12">
+            <div class="center">
+              <h5> Regioes </h5>
+            </div>
+            <div class="divider row col s12"></div>
+
+            <!-- Regiao inicial -->
+            <div class="col s5 offset-s1">
+              <h6> Região Inicial </h6>
+              <p *ngFor="let region of regions; let i = index">
+                <input class="with-gap" name="group1" type="radio" id="{{region}}" [(ngModel)]="radioButtonValue" [value]="i" [disabled]="isDisabled?true:null" name="regiaoInicial"/>
+                <label  for="{{region}}" >{{region}}</label>
+              </p>
+            </div>
+          
+            <!-- Regioes por onde vai passar -->
+            <div class="col s5 offset-s1"> 
+              <h6> Regiões pretende visitar </h6>          
+              <p *ngFor="let region of regions; let i = index">
+                <label>
+                  <input type="checkbox" id="{{i}}" [checked]="isTest5Checked" [disabled]="isDisabled?true:null" name="checkbox-regioes"/>
+                  <label for="{{i}}">{{region}}</label>
+                </label>
+              </p>                
+            </div>
+          </section>
+        </div>
+
+        <!-- escolha do pokemon -->
+        <section class="col s12">
+          <h5>Escolha seu Pokemon inicial!</h5>
+          <div class="divider row col s12"></div>
+
+          <div class="col s5">
+            <p>{{pokemon | uppercase}}! <span>Eu escolho você!</span></p>
+            <input type="text" [(ngModel)]="pokemon" name="pokemon"placeholder="bulbasaur" required>
+          </div>
+          <div class="col s6">
+            <!-- <img src="{{pokemon.sprites.front_shiny}}"> -->
+            <img src="" alt="">
+          </div>
+        </section>
+
+        <div class="divider row col s12"></div>
+        <div>
+          <button class="modal-action modal-close waves-effect light-blue white-text waves-ligh btn-flat" type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="fechaModal()">close</a>
+  </div>
+
+</div>

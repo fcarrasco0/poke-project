@@ -1,19 +1,18 @@
-<html>
-	<head>
-
-	</head>
-
 	<app-navbar></app-navbar>
 	
-	<body>
-		<a class="waves-effect waves-light btn" (click)="getPokemon()">Clique em mim</a>
+	<div class="row center">
+			<a class="botao waves-effect waves-light yellow darken-4 btn-large" (click)="getPokemon()">A wild Pokemon Appears</a>
+	</div>
 		
-		<ul class="collection" *ngFor="let pokemon of pokemons">
-			<li> {{pokemon.name}} </li>
-			<img src="{{pokemon.sprites.front_shiny}}">
-		</ul>
-	</body>
-
-</html>
+	<div class="container row">
+		<div class="col s12 m6 l3" *ngFor="let pokemon of pokemons">
+		    <div class="card small center">
+		 		<div class="card-content white-text">
+					<span class="name card-title">{{pokemon.name}}</span>
+				    <img src="{{pokemon.sprites.front_shiny}}">
+				</div>
+			</div>
+		</div>
+	</div>
 
 

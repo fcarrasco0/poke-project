@@ -1,6 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-.page-background-img{
+.background-img{
     background-image: url('http://www.wallpapersfans.com/wp-content/uploads/2016/11/pokemon_go_hd_wallpaper.jpg');
     background-size: cover;
+}
+
+.background{
+    background: grey;
+    opacity: .8;
+
     
 }

@@ -12,7 +12,11 @@ import { BerriesComponent } from './pages/berries/berries.component';
 import { AppRoutingModule } from './app.routing.module'
 
 import { HttpClientModule } from '@angular/common/http'; //Importar para a service funcionar
-import { PokemonService } from './services/pokemon/pokemon.service'; //Importar para a Service funcionar
+import { PokemonService } from './services/pokemon/pokemon.service';
+import { LigaComponent } from './pages/liga/liga.component';
+import { ModalRegistroComponent } from './pages/liga/modal-registro/modal-registro.component'; //Importar para a Service funcionar
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +25,16 @@ import { PokemonService } from './services/pokemon/pokemon.service'; //Importar 
     PokemonsComponent,
     HomeComponent,
     BerriesComponent,
+    LigaComponent,
+    ModalRegistroComponent,
 
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     AppRoutingModule,
-    HttpClientModule //Importar para a service funcionar
+    HttpClientModule, //Importar para a service funcionar
+    FormsModule
   ],
   providers: [
     PokemonService
